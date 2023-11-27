@@ -33,7 +33,9 @@ class MyTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell")!
         
-        // ここに書く
+        cell.contentConfiguration = UIHostingConfiguration {
+            MyCell(title: titles[indexPath.row], memo: memos[indexPath.row])
+        }
         
         return cell
     }

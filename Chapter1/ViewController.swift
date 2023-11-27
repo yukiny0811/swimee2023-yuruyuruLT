@@ -15,7 +15,8 @@ class ViewController: UIViewController {
     }
 
     @IBAction func presentSwiftUIView() {
-        //ここに書く
+        let vc = UIHostingController(rootView: MySwiftUIView())
+        self.present(vc, animated: true)
     }
 
 }

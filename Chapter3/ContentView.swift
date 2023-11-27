@@ -18,7 +18,24 @@ struct ContentView: View {
         "パイナップル",
     ]
     var body: some View {
-        EmptyView()
+        NavigationStack {
+            List {
+                ForEach(items) { item in
+                    Text(item)
+                }
+                .onDelete { indexSet in
+                    items.remove(atOffsets: indexSet)
+                }
+            }
+            .navigationTitle("フルーツ")
+            .toolbar {
+                ToolbarItem {
+                    Button("追加") {
+                        items.append("もも")
+                    }
+                }
+            }
+        }
     }
 }
 
